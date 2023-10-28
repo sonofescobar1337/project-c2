@@ -53,7 +53,7 @@ def make_http_request():
         'bank': 'BCA',
         'rek': generate_random_number(12),
         'nama': generate_random_string(12),
-        'ref': 'pastigacor7',
+        'ref': 'kontolpak111',
         'task': 'register',
         'regdesktop': 'yJlL58l4xESFNCpbsEv5XgYChKeis6Ygr2+veatjvX0=',
     }
