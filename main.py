@@ -58,8 +58,9 @@ def make_http_request(request_number):
         'regdesktop': 'd25jnLUF7huZAe+g8BlCYTA9nPqzDzzlwxp3ODlBD0g=',
     }
 
-    # Lakukan permintaan POST
-    response = requests.post('https://upsberjaya.com/new-webdata.php', cookies=cookies, headers=headers, data=data)
+    with requests.Session() as session:
+        # Lakukan permintaan POST
+        response = session.post('https://upsberjaya.com/new-webdata.php', cookies=cookies, headers=headers, data=data)
 
     # Cek isi respon
     if "upsberjaya.com | 520: Web server is returning an unknown error" in response.text:
