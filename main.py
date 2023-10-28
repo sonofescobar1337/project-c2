@@ -23,8 +23,8 @@ def make_http_request():
     random_password = generate_random_string(100)
 
     cookies = {
-        'chaport-64badb6587d008fca92fd44d': '8edd8340-a3a5-4abd-86bb-3b111e0b437e%2FYGF7Q4NuASw1zE3qA9mb9xKxZjy2uhoyQxbJVw',
-        'PHPSESSID': 'tllqce9uahf3c176f6r0imi793',
+            'chaport-64badb6587d008fca92fd44d': '8edd8340-a3a5-4abd-86bb-3b111e0b437e%2FYGF7Q4NuASw1zE3qA9mb9xKxZjy2uhoyQxbJVw',
+            'PHPSESSID': 'tllqce9uahf3c176f6r0imi793',
     }
 
     headers = {
@@ -55,7 +55,7 @@ def make_http_request():
         'nama': generate_random_string(12),
         'ref': 'kontolpak111',
         'task': 'register',
-        'regdesktop': 'yJlL58l4xESFNCpbsEv5XgYChKeis6Ygr2+veatjvX0=',
+        'regdesktop': 'd25jnLUF7huZAe+g8BlCYTA9nPqzDzzlwxp3ODlBD0g=',
     }
 
     # Lakukan permintaan POST
